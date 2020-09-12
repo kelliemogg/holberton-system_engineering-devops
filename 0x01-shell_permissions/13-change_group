@@ -1,2 +1,2 @@
 #!/bin/bash
-chgrp {holberton | --reference=hello} hello
+chgrp holberton hello
