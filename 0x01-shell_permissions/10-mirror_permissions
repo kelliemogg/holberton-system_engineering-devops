@@ -1,2 +1,2 @@
 #!/bin/bash
-cp chmod hello elloh
+chmod --reference elloh hello
