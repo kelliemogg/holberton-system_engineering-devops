@@ -1,2 +1,2 @@
 #!/bin/bash
-head -l 3 iacta
+head count -l 3 iacta
