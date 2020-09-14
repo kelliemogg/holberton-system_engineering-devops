@@ -1,2 +1,2 @@
 #!/bin/bash
-find /etc/passwd -type *"root" | wc -l
+find /etc/passwd -type "*root" | wc -l
