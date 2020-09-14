@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'A' 'c' | 'Z' 'e'
+echo 'A' 'c' | tr 'Z' 'e'
