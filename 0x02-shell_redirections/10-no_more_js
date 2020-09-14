@@ -1,2 +1,2 @@
 #!/bin/bash
-find -delete .js
+find . -name pattern -type f .js | rm
