@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "0x%X\n" 16
+printf "0x%X\n" 15
