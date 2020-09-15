@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "0x%X\n" 15
+printf "%X\n" $DECIMAL 
