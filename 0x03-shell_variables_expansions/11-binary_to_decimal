@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((2#1010)) \
+export BINARY | printf $((2#1010)) \
