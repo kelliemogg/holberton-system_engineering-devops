@@ -1,2 +1,2 @@
 #!/bin/bash
-touch PATH=$PATH:/action*
+touch $PATH:/action*
