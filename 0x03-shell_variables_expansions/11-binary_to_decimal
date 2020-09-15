@@ -1,2 +1,2 @@
 #!/bin/bash
-export BINARY | printf $((2#1010)) \
+printf "%d\n" $BINARY
