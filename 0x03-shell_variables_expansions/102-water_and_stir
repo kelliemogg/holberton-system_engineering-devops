@@ -1,2 +1,2 @@
 #!/bin/bash
-tr water 01234
+tr echo water 01234
