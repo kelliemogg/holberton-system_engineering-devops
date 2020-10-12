@@ -1,3 +1,2 @@
 #!/bin/bash
 tr echo water 01234
-tr echo stir 0123
