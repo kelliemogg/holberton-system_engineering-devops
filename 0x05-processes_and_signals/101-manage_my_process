@@ -3,7 +3,7 @@
 case "$1" in
     start)
 	sudo -b ./manage_my_process
-	pgrep -lf ./manage_my_process | grep sudo /var/run/my_process.pid
+	pgrep -lf ./manage_my_process | grep sudo | cut -d " " -f 1 >> /var/run/my_process.pid
         echo "manage_my_process started"
 	;;
 
@@ -17,7 +17,7 @@ case "$1" in
 	pkill -f ./manage_my_process
 	rm /var/run/my_process.pid
 	sudo -b ./manage_my_process
-	pgrep -lf ./manage_my_process | grep sudo /var/run/my_process.pid
+	pgrep -lf ./manage_my_process | grep sudo | cut -d " " -f 1 >> /var/run/my_process.pid
 	echo "manage_my_process restarted"
 	;;
 
