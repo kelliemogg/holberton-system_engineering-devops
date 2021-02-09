@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # this script manages programs running in the background (daemons)
-while true; do
-    echo "$i"
+test -f /var/run/my_process.pid
 case "$i" in
     start)
         echo "manage_my_process started"
@@ -23,4 +22,3 @@ case "$i" in
         echo "Usage: manage_my_process {start|stop|restart}"
 	;;
 esac
-done
