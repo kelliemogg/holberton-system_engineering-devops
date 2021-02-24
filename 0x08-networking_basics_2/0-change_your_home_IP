@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configures an Ubuntu server with the below requirements
+if ping facebook.com
+then
+    ifconfig facebook.com 8.8.8.8
+elif ping localhost
+then
+    ifconfig localhost 127.0.0.2
+fi
+done
