@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 # configures an Ubuntu server with the below requirements
-if ping facebook.com
-then
-    ifconfig facebook.com 8.8.8.8
-elif ping localhost
-then
-    ifconfig localhost 127.0.0.2
-fi
-done
+grep -Evw "(localhost|facebook)" /etc/hosts > ~/hosts.new
+echo "127.0.0.2 localhost" >> ~/hosts.new
+echo "8.8.8.8 facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
