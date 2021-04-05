@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# bash script that connects a new server
 ssh ubuntu@35.227.104.177 -i ~/.ssh/holberton
