@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Configure Nginx so that /redirect_me goes to a new page
+apt-get -y update
+apt-get -y install nginx
+sed -ie "s/^server {$/server {\n\trewrite ^\/redirect_me https:\/\/www.saltysistersdesigns.com\/permanent;/g" /etc/nginx/sites-enabled/default
+service nginx restart
