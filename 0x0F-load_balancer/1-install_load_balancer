@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# haproxy congif 
+apt-get -y update
+apt-get install -y haproxy=1.6.\*
+front_back="frontend http
+  bind *:80
+  mode http
+
+  default_backend web-backend
+
+backend web-backend
+   balance roundrobin
+   server web-01 35.227.104.177:80
+   server web-02 54.147.59.234:80" 
+   
+echo -e "$front_back" | sudo too /etc/haproxy/haproxy.cfg
+service haproxy restart
