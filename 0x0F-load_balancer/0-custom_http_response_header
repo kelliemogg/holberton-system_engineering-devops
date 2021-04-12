@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# configures server web-02 and sets a custom HTTP response
+apt-get -y update
+apt-get -y install nginx
+sed -i -r "/^\s+server_name .+;/a\ \\tadd_header X-Served-By \$HOSTNAME\;\n" /etc/nginx/sites-available/default
+service nginx restart
