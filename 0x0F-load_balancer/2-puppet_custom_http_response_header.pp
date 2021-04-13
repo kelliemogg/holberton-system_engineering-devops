@@ -14,7 +14,7 @@ package { 'nginx':
 ->
 
 exec { 'Add header':
-    command  => 'sed -i "48i add_header X-Served-By \$HOSTNAME;" /etc/nginx/sides-available/default',
+    command  => 'sed -i "48i add_header X-Served-By \$HOSTNAME;" /etc/nginx/sites-available/default',
     user     => 'root',
     provider => 'shell'
 }
