@@ -18,8 +18,8 @@ exec { 'Add header':
     user     => 'root',
     provider => 'shell'
 }
-->
 
+->
 exec { 'Start nginx':
     command  => 'service nginx restart,
     user     => 'root',
