@@ -1,4 +1,4 @@
-# create a custum HTTP header response
+# configure http header with puppet
 exec { 'update':
     command  => 'apt-get update',
     user     => 'root',
@@ -13,7 +13,7 @@ package { 'nginx':
 }
 ->
 
-exec { 'Addd header':
+exec { 'Add header':
     command  => 'sed -i "48i add_header X-Served-By \$HOSTNAME;" /etc/nginx/sites-available/default',
     user     => 'root',
     provider => 'shell'
@@ -21,7 +21,7 @@ exec { 'Addd header':
 
 ->
 exec { 'Start nginx':
-    command  => 'service nginx restart,
+    command  => 'service nginx restart',
     user     => 'root',
     provider => 'shell'
 }
