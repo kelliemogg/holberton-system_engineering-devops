@@ -39,7 +39,6 @@ defaults
 
 frontend http
         bind *:80
-
         bind *:443 ssl crt /etc/ssl/
         www.kelliemogg.tech/
         kelliemogg.tech/
@@ -47,7 +46,7 @@ frontend http
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend web-backend
         backend letsencrypt-backend
-        server letsencrypt 35.227.104.177
+        server letsencrypt 127.0.0.1:8888
 
 backend webservers
         balance roundrobin
