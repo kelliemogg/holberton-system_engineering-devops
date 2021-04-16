@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+""" bash script displaying info about subdomains """
+
+dom=$1
+sub=$2
+dom_func () {
+    if [ $# -eq 2 ]; then
+        echo -n "The subdomain $sub is a "
+        dig "$arg"."$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{ print $4 " record and points to " $5}'
+    else if [ $# -eq 1 ]; then
+        subs = ('www' 'lb-01' 'web-01' 'web-02')
+        for value in subs; do
+            echo -n "The subdomain $value is a "
+            dig "value"."$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{ print $4 " record and points to " $5}'
+        done
+    fi
+}
+        
