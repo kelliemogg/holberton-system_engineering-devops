@@ -3,9 +3,9 @@
 
 domain=$1
 function dom_func() {
-        for value; do
-                echo -n "The subdomain $value is a "
-                dig $value.$domain | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
+        for arg; do
+                echo -n "The subdomain $arg is a "
+                dig $arg.$domain | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
         done
 }
 
