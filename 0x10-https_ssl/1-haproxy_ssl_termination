@@ -39,19 +39,18 @@ defaults
 
 frontend http
         bind *:80
+
+        bind *:443 ssl crt /etc/ssl/
         www.kelliemogg.tech/
         kelliemogg.tech/
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        default_backend web-backend
+        backend letsencrypt-backend
+        server letsencrypt 35.227.104.177
 
 backend webservers
         balance roundrobin
         server webserver1 35.227.104.177:80 check
         server webserver2 54.147.59.234:80 check
         option httpchk
-
-listen firstbalance
-        bind *:80
-        balance roundrobin
-        option forwardfor
-        option httpchk
-        server webserver1 35.227.104.177:80 check
-        server webserver2 54.147.59.234:80 check
