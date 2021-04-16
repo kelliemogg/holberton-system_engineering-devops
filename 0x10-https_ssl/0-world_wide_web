@@ -6,13 +6,13 @@ sub=$2
 function dom_func () {
     for value; do
             echo -n "The subdomain $value is a "
-            dig "value"."$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
+            dig "$value"."$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
     done
 }
 
 if [ $# -eq 2 ]; then
     echo -n "The subdomain $sub is a "
-    dig "$value"."$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
+    dig "$sub"."$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
 else
     dom_func 'www' 'lb-01' 'web-01' 'web-02'
 fi
