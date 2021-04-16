@@ -51,6 +51,6 @@ frontend http
 
 backend webservers
         balance roundrobin
-        server webserver1 35.227.104.177:80 check
-        server webserver2 54.147.59.234:80 check
-        option httpchk
+        mode http
+        server 2322-web-01 35.227.104.177:80 check
+        server 2322-web-02 54.147.59.234:80 check
