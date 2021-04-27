@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # configure nginx to run as nginx user (not root)
-sudo chown nginx:nginx /etc/nginx/nginx.conf
-sudo chmod 0700 /etc/nginx/nginx.conf
-sudo sed -i "s/^server {/a\nlisten 8080 default_server;/g" /etc/nginx/sites-available/default
+chown -r nginx:nginx /etc/nginx/nginx.conf
+chmod -r 0700 /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+pkill -f apache2
 service nginx restart
