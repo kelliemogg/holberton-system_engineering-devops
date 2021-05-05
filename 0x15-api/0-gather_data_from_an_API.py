@@ -13,7 +13,7 @@ if __name__ == "__main__":
     to_do = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
         argv[1])
     todo_list = requests.get(to_do).json()
-    
+
     employee_name = employee.get('name')
     done_list = []
 
