@@ -12,18 +12,18 @@ if __name__ == "__main__":
 
     to_do = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
         argv[1])
-    todo_list = requests.get(to_do)
+    todo_list = requests.get(to_do).json()
     
     employee_name = employee.get('name')
     done_list = []
 
     """ requests """
-    for task in todo_list.json():
+    for task in todo_list:
         if task.get('completed') is True:
             done_list.append(task.get('title'))
 
     print("Employee {} is done with tasks({}/{}):".format(
-        employee_name, len(done_list), len(todo_list))
+        employee_name, len(done_list), len(todo_list)))
 
-    for task in todo_list:
-        print("\t {}".format(item))
+    for task in done_list:
+        print("\t {}".format(task))
