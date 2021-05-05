@@ -19,6 +19,7 @@ if __name__ == "__main__":
     total = 0
     todo_list = []
 
+    """ requests """
     for task in todo_req.json():
         done = task['completed']
         item = task['title']
