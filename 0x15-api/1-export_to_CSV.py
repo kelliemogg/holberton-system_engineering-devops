@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """ using the REST API and exporting data to a CSV """
 
-import csv
-import requests
-from sys import argv
-
 if __name__ == "__main__":
+    import csv
+    import requests
+    from sys import argv
+
 
     user = 'https://jsonplaceholder.typicode.com/users/{}'.format(
         argv[1])
     employee = requests.get(user).json()
-    employee_name = employee.get('name')
+    employee_name = employee.get('username')
 
     to_do = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
         argv[1])
