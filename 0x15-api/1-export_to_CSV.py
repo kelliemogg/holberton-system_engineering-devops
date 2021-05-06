@@ -17,16 +17,17 @@ if __name__ == "__main__":
     todo_list = requests.get(to_do).json()
 
     new_file = "{}.csv".format(argv[1])
-    row_list = []
     with open(new_file, 'w') as f:
         f.write("")
     for task in todo_list:
         status = task.get('complete')
         task_name = task.get('title')
-        with open(new_file, 'a') as f:
-            new_csv = csv.writer(f)
-            row_list.append("{}".format(argv[1]))
-            row_list.append("{}".format(employee_name))
-            row_list.append("{}".format(status))
-            row_list.append("{}".format(task_name))
+        id_num = argv[1]
+        with open(new_file, 'a', newline='') as f:
+            new_csv = csv.writer(f, quoting=csv.QUOTE_ALL)
+            row_list = []
+            row_list.append(id_num)
+            row_list.append(employee_name)
+            row_list.append(status)
+            row_list.append(task_name)
             new_csv.writerow(row_list)
