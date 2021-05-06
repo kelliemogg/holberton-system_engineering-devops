@@ -6,7 +6,6 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-
     user = 'https://jsonplaceholder.typicode.com/users/{}'.format(
         argv[1])
     employee = requests.get(user).json()
