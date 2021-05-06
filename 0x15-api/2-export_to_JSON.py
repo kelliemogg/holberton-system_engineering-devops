@@ -22,14 +22,17 @@ if __name__ == "__main__":
         to be the value to the key aka USER_ID """
     values_list = []
     by_id_dict = {}
+    values_dict = {}
     for item in todo_list:
-        """ getting items from to do list to populate values_list """
-        task_title = item.get('title')
+        """ getting items from to do list to populate values_dict """
+        task = item.get('title')
         task_completed_status = item.get('completed')
-        username = item.get('username')
-        values_list.append(task_title)
-        values_list.append(task_completed_status)
-        values_list.append(username)
+        values_dict["task"] = task
+        values_dict["completed"] = task_completed_status
+        values_dict["username"] = employee_name
+        """ each task is its own dictionary / now compiling a list of key
+        value pairs for each task and its status / ownership """
+        values_list.append(values_dict)
         by_id_dict[argv[1]] = values_list
 
         """ dumps data into json string """
