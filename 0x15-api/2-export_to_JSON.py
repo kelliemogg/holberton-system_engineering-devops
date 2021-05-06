@@ -34,7 +34,7 @@ if __name__ == "__main__":
         by_id_dict[argv[1]] = values_list
 
         """ dumps data into json string """
-        convert_to_json = json.dumps(by_id_dict)
+    convert_to_json = json.dumps(by_id_dict)
 
     with open(J_file, 'w') as f:
         """ writes json string to a file """
