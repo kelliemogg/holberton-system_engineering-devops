@@ -20,7 +20,7 @@ if __name__ == "__main__":
     with open(new_file, 'w') as f:
         f.write("")
     for task in todo_list:
-        status = task.get('complete')
+        status = task.get('completed')
         task_name = task.get('title')
         id_num = argv[1]
         with open(new_file, 'a', newline='') as f:
