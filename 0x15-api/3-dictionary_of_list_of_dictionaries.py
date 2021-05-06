@@ -22,7 +22,7 @@ if __name__ == "__main__":
         todos = 'https://jsonplaceholder.typicode.com/todos'
         """ records of 10 users to do lists """
         todo_list = requests.get(todos).json()
-        big_dict[user_ID] = {} 
+        big_dict[user_ID] = {}
         """ list of task, task status, and the owner of task
         to be the values to the key aka USER_ID """
         values_list = []
@@ -38,10 +38,9 @@ if __name__ == "__main__":
             values_list.append(values_dict)
             by_id_dict[user_ID] = values_list
             """ dumps data into json string """
-            big_dict[user_ID] = by_id_dict
-            
-            
-        convert_to_json = json.dumps(big_dict)
+        big_dict[user_ID] = by_id_dict
+
+    convert_to_json = json.dumps(big_dict)
 
     with open(filename, 'w') as f:
         f.write(convert_to_json)
