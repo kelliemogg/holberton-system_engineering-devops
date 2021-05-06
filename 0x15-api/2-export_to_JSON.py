@@ -22,8 +22,8 @@ if __name__ == "__main__":
         to be the values to the key aka USER_ID """
     values_list = []
     by_id_dict = {}
-    values_dict = {}
     for item in todo_list:
+        values_dict = {}
         """ getting items from to do list to populate values_dict """
         values_dict["task"] = item.get('title')
         values_dict["completed"] = item.get('completed')
@@ -32,9 +32,8 @@ if __name__ == "__main__":
         value pairs for each task and its status / ownership """
         values_list.append(values_dict)
         by_id_dict[argv[1]] = values_list
-
         """ dumps data into json string """
-    convert_to_json = json.dumps(by_id_dict)
+        convert_to_json = json.dumps(by_id_dict)
 
     with open(J_file, 'w') as f:
         """ writes json string to a file """
