@@ -19,16 +19,14 @@ if __name__ == "__main__":
     J_file = "{}.json".format(argv[1])
 
     """ list of task, tast status, and the owner of task
-        to be the value to the key aka USER_ID """
+        to be the values to the key aka USER_ID """
     values_list = []
     by_id_dict = {}
     values_dict = {}
     for item in todo_list:
         """ getting items from to do list to populate values_dict """
-        task = item.get('title')
-        task_completed_status = item.get('completed')
-        values_dict["task"] = task
-        values_dict["completed"] = task_completed_status
+        values_dict["task"] = item.get('title')
+        values_dict["completed"] = item.get('completed')
         values_dict["username"] = employee_name
         """ each task is its own dictionary / now compiling a list of key
         value pairs for each task and its status / ownership """
