@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" queries the Reddit API and returns the number of subs """
+""" returns a list containing the titles of all hot articles for a subreddit """
 
 import requests
 import json
 
 def top_ten(subreddit):
-    """ returns top ten hot posts of a subreddit """
+    """ uses recursive function to query Reddit API """
     hotURL = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     headers = {"User-Agent": "user"}
     getDict = requests.get(hotURL, headers=headers, allow_redirects=False).json()
