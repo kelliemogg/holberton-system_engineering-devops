@@ -7,7 +7,7 @@ import requests
 
 def top_ten(subreddit):
     """ uses recursive function to query Reddit API """
-    hotURL = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
+    hotURL = 'https://www.reddit.com/r/{}/hot/.json?limit=10'.format(subreddit)
     headers = {"User-Agent": "user"}
     getDict = requests.get(
         hotURL,
@@ -20,5 +20,5 @@ def top_ten(subreddit):
         print("None")
     else:
         forChildren = forData.get("children")
-        for titles in forChildren[:10]:
+        for titles in forChildren:
             print(titles.get('data')['title'])
