@@ -15,9 +15,10 @@ def top_ten(subreddit):
         allow_redirects=False).json()
     # json_response = getDict.json()
     forData = getDict.get("data")
-    forChildren = forData.get("children")
 
     if 'data' not in getDict:
-        return("None")
-    for titles in forChildren[:10]:
-        print(titles.get('data')['title'])
+        print("None")
+    else:
+        forChildren = forData.get("children")
+        for titles in forChildren[:10]:
+            print(titles.get('data')['title'])
