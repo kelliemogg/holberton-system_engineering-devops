@@ -28,7 +28,7 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
 
     forData = response.get("data")
 
-    if 'data' not in response:
+    if "data" not in response:
         return (None)
     else:
         children = forData.get("children")
@@ -36,6 +36,7 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
             this = child.get("data").get("title")
             hot_list.append(this)
             count += 1
+    after = forData.get("after")
     if after is None:
         return hot_list
     return (recurse(subreddit, hot_list, count, after))
