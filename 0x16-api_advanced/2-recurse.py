@@ -30,5 +30,5 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
             hot_list.append(this)
             count += 1
     if after is None:
-        return hot_list    
+        return hot_list
     return (recurse(subreddit, hot_list, count, after))
