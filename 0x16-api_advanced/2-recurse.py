@@ -8,16 +8,23 @@ import requests
 def recurse(subreddit, hot_list=[], count=0, after=None):
     """ uses recursive function to query Reddit API """
     # passes in subreddit as arg to our url
-    hotURL = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
+    hotResponse = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     # reddit is picky about headers
     headers = {"User-Agent": "user"}
+    # response for after query aka next page
+    afterResponse = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(
+        subreddit, after)
     # gets correct json data for our desired subreddit page
-    # allow_redirects is a boolean to disable redirection
-    # Request: From Client to Server & Response: From Server to Client
-    response = requests.get(
-        hotURL,
-        headers=headers,
-        allow_redirects=False).json()
+    if after is None:
+        response = requests.get(
+            hotResponse,
+            headers=headers,
+            allow_redirects=False).json()
+    else:
+        response = requests.get(
+            afterResponse,
+            headers=headers,
+            allow_redirects=False).json()
 
     forData = response.get("data")
 
